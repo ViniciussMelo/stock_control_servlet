@@ -57,8 +57,11 @@ public class ProductController extends HttpServlet {
 				view.forward(req, resp);
 			} else if (action.equalsIgnoreCase("editProduct")) {
 				createEditPage(req, resp);
+			}  else if (action.equalsIgnoreCase("deleteProduct")) {
+				productService.deleteProduct(req);
+				
+				resp.sendRedirect(GET_ALL);
 			}
-
 		} catch (Exception ex) {
 			System.out.println("Product get error: " + ex.getMessage());
 		}
