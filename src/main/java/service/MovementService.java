@@ -81,7 +81,7 @@ public class MovementService {
 		ArrayList<Movement> movements = getSessionMovements(req);
 		
 		for(Movement mov : movements) {
-			if(mov != null && mov.getId() == mov.getId()) {
+			if(mov != null && mov.getId() == movement.getId()) {
 		        mov.setProductName(movement.getProductName());
 		        mov.setQuantity(movement.getQuantity());
 		        mov.setType(movement.getType());
@@ -91,11 +91,13 @@ public class MovementService {
 		return movements;
 	}
 	
-	public Movement getMovementById(HttpServletRequest req, int Id) {
+	public Movement getMovementById(HttpServletRequest req, int id) {
 		ArrayList<Movement> movements = getSessionMovements(req);
 		
 		for(Movement mov : movements) {
-			return mov;
+			if(mov != null && mov.getId() == id) {
+				return mov;
+		    }			
 		}
 		
 		return null;

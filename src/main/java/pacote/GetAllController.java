@@ -169,10 +169,10 @@ public class GetAllController extends HttpServlet {
 									out.print("<td>" + mov.getQuantity() + "</td>");
 									out.print("<td>" + mov.getType() + "</td>");
 									out.print("<td>");
-										out.print("<a href=" + BASE_URL +"MovementController?action=editMovement&id" 
+										out.print("<a href=" + BASE_URL +"MovementController?action=editMovement&id=" 
 												+ mov.getId() 
 												+ " class=buttonActionEdit>Edit</a> ");
-										out.print(" <a href=" + BASE_URL + "MovementController?action=deleteMovement&id" 
+										out.print(" <a href=" + BASE_URL + "MovementController?action=deleteMovement&id=" 
 												+ mov.getId() 
 												+ " class=buttonActionDelete>Remove</a>");
 									out.print("</td>");
