@@ -31,12 +31,7 @@ public class GetAllController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try {
-			ArrayList<Movement> movs = new ArrayList<Movement>();
-			movs.add(new Movement(1, "123", "", 1));
-			
-			movementService.setMovementInSession(req, movs);
-			
+		try {			
 			List<Product> products = productService.getAllProducts(req);
 			List<Movement> movements = movementService.getAllMovements(req);
 			
@@ -115,6 +110,7 @@ public class GetAllController extends HttpServlet {
 						+ "</style>");
 				out.print("<body>");
 					out.print("<h3>Products</h3>");
+					out.print("<a href=" + BASE_URL + "ProductController?action=insertProduct class=button>Add Product</a>");
 					out.print("<table id=products border=1>");
 						out.print("<thead>");
 							out.print("<tr>");
@@ -151,8 +147,6 @@ public class GetAllController extends HttpServlet {
 							out.print("</tr>");
 						out.print("</tfoot>");
 					out.print("</table>");
-					out.print("<br>");
-					out.print("<a href=" + BASE_URL + "ProductController?action=insertProduct class=button>Add Product</a>");
 					out.print("<br>");
 					out.print("<br>");
 					out.print("<h3>Movements</h3>");
